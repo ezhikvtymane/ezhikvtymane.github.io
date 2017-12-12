@@ -1,2 +1,2 @@
 # ezhikvtymane.github.io
-hosting for game
+Please save this rocketship.
