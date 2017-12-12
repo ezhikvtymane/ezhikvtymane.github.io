@@ -1,31 +1,27 @@
-
 (function() {
     var resourceCache = {};
     var loading = [];
     var readyCallbacks = [];
 
-    // Load an image url or an array of image urls
     function load(urlOrArr) {
-        if(urlOrArr instanceof Array) {
+        if (urlOrArr instanceof Array) {
             urlOrArr.forEach(function(url) {
                 _load(url);
             });
-        }
-        else {
+        } else {
             _load(urlOrArr);
         }
     }
 
     function _load(url) {
-        if(resourceCache[url]) {
+        if (resourceCache[url]) {
             return resourceCache[url];
-        }
-        else {
+        } else {
             var img = new Image();
             img.onload = function() {
                 resourceCache[url] = img;
-                
-                if(isReady()) {
+
+                if (isReady()) {
                     readyCallbacks.forEach(function(func) { func(); });
                 }
             };
@@ -40,9 +36,9 @@
 
     function isReady() {
         var ready = true;
-        for(var k in resourceCache) {
-            if(resourceCache.hasOwnProperty(k) &&
-               !resourceCache[k]) {
+        for (var k in resourceCache) {
+            if (resourceCache.hasOwnProperty(k) &&
+                !resourceCache[k]) {
                 ready = false;
             }
         }
@@ -53,7 +49,7 @@
         readyCallbacks.push(func);
     }
 
-    window.resources = { 
+    window.resources = {
         load: load,
         get: get,
         onReady: onReady,

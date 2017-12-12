@@ -31,7 +31,6 @@ function main() {
 };
 
 function init() {
-    // terrainPattern = ctx.createPattern(resources.get('img/terrain2.png'), 'repeat');
     terrainPattern = ctx.createPattern(resources.get('img/space1.jpg'), 'repeat');
     document.getElementById('play-again').addEventListener('click', function() {
         reset();
@@ -79,11 +78,11 @@ function update(dt) {
     updateEntities(dt);
 
     // It gets harder over time by adding enemies using this
-    // equation: 1-.993^gameTime
-    if (Math.random() < 1 - Math.pow(.993, gameTime)) {
+    // equation: 1-.994^gameTime
+    if (Math.random() < 1 - Math.pow(.994, gameTime)) {
         enemies.push({
             pos: [canvas.width,
-                Math.random() * (canvas.height - 39)
+                Math.random() * (canvas.height - 61)
             ],
             sprite: new Sprite('img/sprites.png', [0, 78], [60, 61],
                 6, [0, 1, 2, 3, 2, 1])
