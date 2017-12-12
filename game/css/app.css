@@ -78,6 +78,7 @@ span {
     border-radius: 10px;
     width: 150px;
     height: 50px;
+    font-weight: bold;
 }
 
 .new-game:hover {
